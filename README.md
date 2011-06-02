@@ -6,4 +6,5 @@ This script allows you to simply encrypt and backup your Bitcoin wallet. It crea
 ##Setup
 1. Open the script and define your desired backup folder via `$BACKUP_FOLDER` variable and location of your `wallet.dat` (using `$WALLET_FILE`) in your system (depending on your platform).
 2. Run the script: `sh BitcoinBackup.sh`
-3. Enjoy!
+3. Enter desired encryption password.
+4. Enjoy!
