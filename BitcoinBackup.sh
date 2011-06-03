@@ -63,19 +63,22 @@ cp "$WALLET_FILE" "$BACKUP_FOLDER"
 cd "$BACKUP_FOLDER"
 
 # Encryption
-openssl des3 -salt -in wallet.dat -out wallet.dat.des-ede3-cbc
+openssl aes-256-cbc -a -salt -in wallet.dat -out wallet.dat.aes-256-cbc
 
 # Ged md5 sum and write into info.txt
+rm info.txt
 md5 wallet.dat >> info.txt
 
-echo "\nDecryption command:"
-echo "\nopenssl des3 -d -salt -in wallet.dat.des-ede3-cbc -out wallet.dat" >> info.txt
+# Put in the instructions
+echo "\nDecryption command:" >> info.txt
+echo "\nopenssl aes-256-cbc -d -a -salt -in wallet.dat.aes-256-cbc -out wallet.dat" >> info.txt
 rm wallet.dat
+
 FILENAME="Bitcoin_wallet_"`eval date +%Y%m%d`".tgz"
 
 # Pack it all in .tgz
-tar -zcvf $FILENAME wallet.dat.des-ede3-cbc info.txt
-rm wallet.dat.des-ede3-cbc
+tar -zcvf $FILENAME wallet.dat.aes-256-cbc info.txt
+rm wallet.dat.aes-256-cbc
 rm info.txt
 
 # If you want to use your server, you can use SCP. Just uncomment following lines
