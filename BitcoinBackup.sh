@@ -80,9 +80,10 @@ rm info.txt
 
 # If you want to use your server, you can use SCP. Just uncomment following lines
 # and fill out your info at the SETUP part of this script
-#if scp $FILENAME $USER@$SERVER:"$REMOTE_DIR"
-#then 
-#   echo "Success!"
-#else
-#   echo "Remote connection failed"; exit 1;
-#fi
+# echo "Attempting to connect to "$SERVER
+# if scp $FILENAME $USER@$SERVER:"$REMOTE_DIR"
+# then 
+#    echo "Success!"
+# else
+#    echo "Remote connection failed"; exit 1;
+# fi
