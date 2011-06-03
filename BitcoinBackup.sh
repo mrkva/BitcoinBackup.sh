@@ -16,9 +16,6 @@
 
 #!/bin/bash
 
-# Simple Bitcoin backup
-# (cc) mrkva 2011
-
 # Define your desired backup folder
 BACKUP_FOLDER=~/Documents/BitcoinBackups
 
