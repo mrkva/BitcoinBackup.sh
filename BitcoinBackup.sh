@@ -50,7 +50,7 @@ fi
 
 if [ ! -d "$BACKUP_FOLDER" ]
 then
-	mkdir "$BACKUP_FOLDER"
+    mkdir "$BACKUP_FOLDER"
 fi
 
 cp "$WALLET_FILE" "$BACKUP_FOLDER"
