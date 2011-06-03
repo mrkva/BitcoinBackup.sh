@@ -27,13 +27,19 @@ BACKUP_FOLDER=~/Documents/BitcoinBackups
 WALLET_FILE=~/Library/Application\ Support/Bitcoin/wallet.dat
 
 ###############################
+APPCHK=$(ps -ea | grep bitcoin | grep -v grep | wc -l)
 
+trap 'echo Aborted.; exit 1' 2
 echo "Bitcoin backup started."
-echo "IMPORTANT:"
-echo "Make sure the Bitcoin application is not running!"
-read -n1 -p "Do you want to continue? (y/n) "
-echo
-[[ $REPLY = [yY] ]] && echo " " || { echo "Stopping..."; exit 1; }
+
+# Check if Bitcoin is running
+if [$APPCHK -eq 1 ]
+then
+    echo "Bitcoin appears to be running, please quit it before backup"; exit 1
+else
+    echo " "
+fi
+ 
 
 if [ ! -d "$BACKUP_FOLDER" ]
 then
