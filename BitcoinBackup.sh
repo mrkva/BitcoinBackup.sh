@@ -65,15 +65,15 @@ md5 wallet.dat >> info.txt
 echo "\nDecryption command:"
 echo "\nopenssl des3 -d -salt -in wallet.dat.des-ede3-cbc -out wallet.dat" >> info.txt
 rm wallet.dat
-filename="Bitcoin_wallet_"`eval date +%Y%m%d`".tgz"
+FILENAME="Bitcoin_wallet_"`eval date +%Y%m%d`".tgz"
 
 # Pack it all in .tgz
-tar -zcvf $filename wallet.dat.des-ede3-cbc info.txt
+tar -zcvf $FILENAME wallet.dat.des-ede3-cbc info.txt
 rm wallet.dat.des-ede3-cbc
 rm info.txt
 
 # If you want to use your server, you can use SCP
-# scp $filename user@myserver.org:~/wallets/
+# scp $FILENAME user@myserver.org:~/wallets/
 
 echo "Success!"
 exit
