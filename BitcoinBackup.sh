@@ -1,5 +1,5 @@
 # BitcoinBackup.sh, simple encrypt & backup script for your Bitcoin wallet
-# Copyright (C) 2011  Jonas Gruska
+# Copyright (C) 2011  Jonas Gruska, http://mrkva.ovecka.be
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
