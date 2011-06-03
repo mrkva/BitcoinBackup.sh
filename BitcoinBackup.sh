@@ -18,7 +18,7 @@
 
 # Simple Bitcoin backup
 
-###############################
+########## SETUP ##############
 
 # Define your desired backup folder
 BACKUP_FOLDER=~/Documents/BitcoinBackups
@@ -32,6 +32,11 @@ WALLET_FILE=~/Library/Application\ Support/Bitcoin/wallet.dat
 
 # Under Windows
 # WALLET_FILE=%APPDATA%\Bitcoin\wallet.dat
+
+# Setup for remote backup (SCP)
+# USER="John"
+# SERVER="Server.org"
+# REMOTE_DIR=~/wallets
 
 ###############################
 APPCHK=$(ps -ea | grep bitcoin | grep -v grep | wc -l)
@@ -72,8 +77,10 @@ tar -zcvf $FILENAME wallet.dat.des-ede3-cbc info.txt
 rm wallet.dat.des-ede3-cbc
 rm info.txt
 
-# If you want to use your server, you can use SCP
-# scp $FILENAME user@myserver.org:~/wallets/
-
-echo "Success!"
-exit
+# If you want to use your server, you can use SCP. Just uncomment following lines and fill out your info at the SETUP part of this script
+#if scp $FILENAME $USER@$SERVER:"$REMOTE_DIR"
+#then 
+#   echo "Success!"
+#else
+#   echo "Remote connection failed"; exit 1;
+#fi
