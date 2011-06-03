@@ -23,7 +23,8 @@
 # Define your desired backup folder
 BACKUP_FOLDER=~/Documents/BitcoinBackups
 
-# Define your Bitcoin wallet location. Just uncomment the one you are going to use and comment the others with '#' 
+# Define your Bitcoin wallet location. Just uncomment the one you
+# are going to use and comment the others with '#' 
 # Mac OS X location
 WALLET_FILE=~/Library/Application\ Support/Bitcoin/wallet.dat
 
@@ -77,7 +78,8 @@ tar -zcvf $FILENAME wallet.dat.des-ede3-cbc info.txt
 rm wallet.dat.des-ede3-cbc
 rm info.txt
 
-# If you want to use your server, you can use SCP. Just uncomment following lines and fill out your info at the SETUP part of this script
+# If you want to use your server, you can use SCP. Just uncomment following lines
+# and fill out your info at the SETUP part of this script
 #if scp $FILENAME $USER@$SERVER:"$REMOTE_DIR"
 #then 
 #   echo "Success!"
