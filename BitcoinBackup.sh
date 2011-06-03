@@ -72,5 +72,8 @@ tar -zcvf $filename wallet.dat.des-ede3-cbc info.txt
 rm wallet.dat.des-ede3-cbc
 rm info.txt
 
+# If you want to use your server, you can use SCP
+# scp $filename user@myserver.org:~/wallets/
+
 echo "Success!"
 exit
