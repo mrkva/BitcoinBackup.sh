@@ -37,7 +37,7 @@ WALLET_FILE=~/Library/Application\ Support/Bitcoin/wallet.dat
 APPCHK=$(ps -ea | grep bitcoin* | grep -v grep | wc -l)
 
 # Trap for ^C
-trap 'echo Aborted.; exit 1' 2
+trap 'echo Aborted.; rm $BACKUP_FOLDER/wallet.dat; exit 1' 2
 
 echo "Bitcoin backup started."
 
