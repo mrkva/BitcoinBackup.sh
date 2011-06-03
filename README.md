@@ -1,7 +1,7 @@
 #BitcoinBackup.sh
-Inspired by [this](http://plasticliving.blogspot.com/2011/05/my-preferred-way-to-backup-bitcoin.html) blog.
+Inspired by [this](http://plasticliving.blogspot.com/2011/05/my-preferred-way-to-backup-bitcoin.html) blog.  
 Spare some change?  
-1A71MsTCyDgH1RRaXuneWom98DGQHBskhh  
+`1A71MsTCyDgH1RRaXuneWom98DGQHBskhh`  
 Thanks!
 ##Simple Bitcoin wallet backup script
 This script allows you to simply __encrypt__ (with AES-256) and __backup__ your Bitcoin wallet. It creates a directory for your backups and packs the encrypted `wallet.dat` with textfile containing md5 sum and in case you forget (maybe while on other computer), command for decryption. In the end, you can setup SCP command (provided) for your server - backup yor wallet remotely, or just send it to your online e-mail account.
