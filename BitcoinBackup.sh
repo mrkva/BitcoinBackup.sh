@@ -16,10 +16,13 @@
 
 #!/bin/bash
 
+<<<<<<< HEAD
 # Simple Bitcoin backup
 
 ###############################
 
+=======
+>>>>>>> 30dc6036153fbdafe9e465236f4f392de26663cb
 # Define your desired backup folder
 BACKUP_FOLDER=~/Documents/BitcoinBackups
 
