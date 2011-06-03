@@ -36,7 +36,7 @@ WALLET_FILE=~/Library/Application\ Support/Bitcoin/wallet.dat
 # Setup for remote backup (SCP)
 # USER="John"
 # SERVER="Server.org"
-# REMOTE_DIR=~/wallets
+# REMOTE_DIR="~/wallets"
 
 ###############################
 APPCHK=$(ps -ea | grep bitcoin | grep -v grep | wc -l)
