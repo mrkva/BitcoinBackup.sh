@@ -17,13 +17,23 @@
 #!/bin/bash
 
 # Simple Bitcoin backup
-# (cc) mrkva 2011
+
+###############################
 
 # Define your desired backup folder
 BACKUP_FOLDER=~/Documents/BitcoinBackups
 
 # Define your Bitcoin wallet location. As example you see default Mac OS X location.
 WALLET_FILE=~/Library/Application\ Support/Bitcoin/wallet.dat
+
+###############################
+
+echo "Bitcoin backup started."
+echo "IMPORTANT:"
+echo "Make sure the Bitcoin application is not running!"
+read -n1 -p "Do you want to continue? (y/n) "
+echo
+[[ $REPLY = [yY] ]] && echo " " || { echo "Stopping..."; exit 1; }
 
 if [ ! -d "$BACKUP_FOLDER" ]
 then
