@@ -23,19 +23,28 @@
 # Define your desired backup folder
 BACKUP_FOLDER=~/Documents/BitcoinBackups
 
-# Define your Bitcoin wallet location. As example you see default Mac OS X location.
+# Define your Bitcoin wallet location. Just uncomment the one you are going to use and comment the others with '#' 
+# Mac OS X location
 WALLET_FILE=~/Library/Application\ Support/Bitcoin/wallet.dat
 
-###############################
-APPCHK=$(ps -ea | grep bitcoin | grep -v grep | wc -l)
+# Under Linux / UNIX
+# WALLET_FILE=~/.bitcoin/wallet.dat
 
+# Under Windows
+# WALLET_FILE=%APPDATA%\Bitcoin\wallet.dat
+
+###############################
+APPCHK=$(ps -ea | grep bitcoin* | grep -v grep | wc -l)
+
+# Trap for ^C
 trap 'echo Aborted.; exit 1' 2
+
 echo "Bitcoin backup started."
 
 # Check if Bitcoin is running
 if [$APPCHK -eq 1 ]
 then
-    echo "Bitcoin appears to be running, please quit it before backup"; exit 1
+    echo "Bitcoin appears to be running, please quit it before you start this process."; exit 1
 else
     echo " "
 fi
