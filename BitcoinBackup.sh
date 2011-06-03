@@ -45,8 +45,6 @@ echo "Bitcoin backup started."
 if [$APPCHK -eq 1 ]
 then
     echo "Bitcoin appears to be running, please quit it before you start this process."; exit 1
-else
-    echo " "
 fi
  
 
