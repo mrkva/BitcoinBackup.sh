@@ -16,7 +16,7 @@ This script allows you to simply __encrypt__ (with AES-256) and __backup__ your 
 
 ###Decryption
 1. Get `BitcoinDecrypt.sh`.
-2. Run (`sh BitcoinDecrypt.sh ~/PATH/TO/FILE`) it with the file you want to decrypt as argument (needs to be created by `BitcoinBackup.sh`).
+2. Run `sh BitcoinDecrypt.sh ~/PATH/TO/FILE` with the file you want to decrypt as argument (needs to be created by `BitcoinBackup.sh`).
 3. Enter your encryption password. Check the md5 sums for match.
 4. Enjoy your decrypted wallet in the `wall_date` folder.
 
