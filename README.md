@@ -7,9 +7,17 @@ Thanks!
 This script allows you to simply __encrypt__ (with AES-256) and __backup__ your Bitcoin wallet. It creates a directory for your backups and packs the encrypted `wallet.dat` with textfile containing md5 sum and in case you forget (maybe while on other computer), command for decryption. In the end, you can setup SCP command (provided) for your server - backup yor wallet remotely, or just send it to your online e-mail account.
 
 ##Setup & usage
+###Backup & encryption
 1. Open the script and define your desired backup folder via `$BACKUP_FOLDER` variable and location of your `wallet.dat` (using `$WALLET_FILE`) in your system (depending on your platform). If you want to use remote backup, setup also your username `$USER`, server `$SERVER` and remote directory `$REMOTE_DIR`.
 2. Run the script: `sh BitcoinBackup.sh`. Script checks if `bitcoin` or `bitcoind` aren't running.
 3. Enter desired encryption password.
 4. (optional) In case you set up SCP backup, script will ask you for password.
 5. Enjoy!
 
+###Decryption
+1. Get `BitcoinDecrypt.sh`.
+2. Run (`sh BitcoinDecrypt.sh ~/PATH/TO/FILE`) it with the file you want to decrypt as argument (needs to be created by `BitcoinBackup.sh`).
+3. Enter your encryption password. Check the md5 sums for match.
+4. Enjoy your decrypted wallet in the `wall_date` folder.
+
+IMPORTANT: Make sure you backup your **current `wallet.dat`** before you replace it with decrypted one.
