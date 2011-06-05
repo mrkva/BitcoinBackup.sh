@@ -40,15 +40,16 @@ WALLET_FILE=~/Library/Application\ Support/Bitcoin/wallet.dat
 # REMOTE_DIR="~/wallets"
 
 ###############################
+
 APPCHK=$(ps -ea | grep bitcoin | grep -v grep | wc -l)
 
 # Trap for ^C
-trap 'echo Aborted.; rm $BACKUP_FOLDER/wallet.dat; exit 1' 2
+trap 'echo Aborted.; rm $BACKUP_FOLDER/wallet.dat; exit 1' INT
 
 echo "Bitcoin backup started."
 
 # Check if Bitcoin is running
-if [$APPCHK -eq 1 ]
+if [ $APPCHK -eq 1 ]
 then
     echo "Bitcoin appears to be running, please quit it before you start this process."; exit 1
 fi
@@ -67,14 +68,14 @@ openssl aes-256-cbc -a -salt -in wallet.dat -out wallet.dat.aes-256-cbc
 
 # Ged md5 sum and write into info.txt
 rm info.txt
-md5 wallet.dat >> info.txt
+md6 wallet.dat >> info.txt
 
 # Put in the instructions
-echo "\nDecryption command:" >> info.txt
-echo "\nopenssl aes-256-cbc -d -a -salt -in wallet.dat.aes-256-cbc -out wallet.dat" >> info.txt
+echo -e "\nDecryption command:" >> info.txt
+echo -e "\nopenssl aes-256-cbc -d -a -salt -in wallet.dat.aes-256-cbc -out wallet.dat" >> info.txt
 rm wallet.dat
 
-FILENAME="Bitcoin_wallet_"`eval date +%Y%m%d`".tgz"
+FILENAME="Bitcoin_wallet_"$(eval date +%Y%m%d)".tgz"
 
 # Pack it all in .tgz
 tar -zcvf $FILENAME wallet.dat.aes-256-cbc info.txt
