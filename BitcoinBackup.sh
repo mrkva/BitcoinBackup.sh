@@ -66,8 +66,13 @@ cd "$BACKUP_FOLDER"
 # Encryption
 openssl aes-256-cbc -a -salt -in wallet.dat -out wallet.dat.aes-256-cbc
 
-# Ged md5 sum and write into info.txt
-rm info.txt
+# Check for some old mess
+FILECHECK=$(ls -la | grep info.txt | wc -l)
+if [ $FILECHECK -eq 1 ]
+	then rm info.txt
+fi
+
+# Get md5 sum and write into info.txt
 md5 wallet.dat >> info.txt
 
 # Put in the instructions
