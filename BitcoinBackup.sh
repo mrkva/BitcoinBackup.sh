@@ -71,8 +71,9 @@ rm info.txt
 md5 wallet.dat >> info.txt
 
 # Put in the instructions
-echo -e "\nDecryption command:" >> info.txt
-echo -e "\nopenssl aes-256-cbc -d -a -salt -in wallet.dat.aes-256-cbc -out wallet.dat" >> info.txt
+echo
+echo "Decryption command:" >> info.txt
+echo "openssl aes-256-cbc -d -a -salt -in wallet.dat.aes-256-cbc -out wallet.dat" >> info.txt
 rm wallet.dat
 
 FILENAME="Bitcoin_wallet_"$(eval date +%Y%m%d)".tgz"
