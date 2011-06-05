@@ -68,7 +68,7 @@ openssl aes-256-cbc -a -salt -in wallet.dat -out wallet.dat.aes-256-cbc
 
 # Ged md5 sum and write into info.txt
 rm info.txt
-md6 wallet.dat >> info.txt
+md5 wallet.dat >> info.txt
 
 # Put in the instructions
 echo -e "\nDecryption command:" >> info.txt
