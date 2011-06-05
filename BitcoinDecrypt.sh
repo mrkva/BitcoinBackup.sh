@@ -38,11 +38,11 @@
 
 echo "Bitcoin decrypt started."
 
-ABSOLUTEPATH=`dirname $1`
+ABSOLUTEPATH=$(dirname $1)
 
-OUTDIR="$ABSOLUTEPATH""/wallet_"`eval date +%Y%m%d`
+OUTDIR="$ABSOLUTEPATH""/wallet_"$(eval date +%Y%m%d)
 
-trap 'echo Aborted.; rm -rf $OUTDIR; exit 1' 2
+trap 'echo Aborted.; rm -rf $OUTDIR; exit 1' INT
 
 mkdir $OUTDIR
 cd $OUTDIR
@@ -54,14 +54,14 @@ if ! openssl aes-256-cbc -d -a -salt -in wallet.dat.aes-256-cbc -out wallet.dat
 fi
 rm wallet.dat.aes-256-cbc
 
-BACKUPMD5=`head -n 1 info.txt`
+BACKUPMD5=$(head -n 1 info.txt)
 ORIGMD5=$(md5 wallet.dat)
 
 echo "md5 sum of original backup wallet.dat: "$BACKUPMD5
 echo "md5 sum of the decrypted wallet.dat:   "$ORIGMD5
 
-echo "\nSuccess!"
-echo "Your decrypted wallet.dat was saved to: "
-echo "		"$OUTDIR
-echo "\nIMPORTANT: Make sure that Bitcoin or bitcoind is not running while operating with wallet and backup your current wallet.dat before you replace it with decrypted one!"
-echo "\n"
+echo -e "\nSuccess!"
+echo -e "Your decrypted wallet.dat was saved to: "
+echo -e "		"$OUTDIR
+echo -e "\nIMPORTANT: Make sure that Bitcoin or bitcoind is not running while operating with wallet and backup your current wallet.dat before you replace it with decrypted one!"
+echo -e "\n"
