@@ -59,9 +59,9 @@ ORIGMD5=$(md5 wallet.dat)
 
 echo "md5 sum of original backup wallet.dat: "$BACKUPMD5
 echo "md5 sum of the decrypted wallet.dat:   "$ORIGMD5
-
-echo -e "\nSuccess!"
-echo -e "Your decrypted wallet.dat was saved to: "
-echo -e "		"$OUTDIR
-echo -e "\nIMPORTANT: Make sure that Bitcoin or bitcoind is not running while operating with wallet and backup your current wallet.dat before you replace it with decrypted one!"
-echo -e "\n"
+echo
+echo "Success!"
+echo "Your decrypted wallet.dat was saved to: "
+echo "		"$OUTDIR
+echo "IMPORTANT: Make sure that Bitcoin or bitcoind is not running while operating with wallet and backup your current wallet.dat before you replace it with decrypted one!"
+echo
